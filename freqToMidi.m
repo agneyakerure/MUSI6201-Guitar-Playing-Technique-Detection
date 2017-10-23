@@ -6,8 +6,6 @@ function  [pitchInMidi] = freqToMidi(pitchInHz)
 % Output:
 %   pitchInMidi:    (Nx 1) float vector, pitch in MIDI
 
-%Hello whatsup
-
 % Check input dimensions 
 [~,n] = size(pitchInHz);
 if (n>1)
