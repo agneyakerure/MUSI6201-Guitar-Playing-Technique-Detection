@@ -2,14 +2,14 @@ clear;
 clc;
 
 currentFolder = pwd;
-inputAudioFolder = '/Users/agneyakerure/Desktop/ACA_Project';
+inputAudioFolder = '/Users/agneyakerure/Desktop/audio content analysis/ACA_Project';
 cd(inputAudioFolder);
 audioFileNames = dir('*wav');
 len = length(audioFileNames);
 Fs = 44100;
 
 for i = 1 : len
-   pathToSonicAnnotator =  '/Users/agneyakerure/Desktop/ACA_Project/sonic-annotator-1.5-osx-amd64/sonic-annotator ';
+   pathToSonicAnnotator =  '/Users/agneyakerure/Desktop/audio\ content\ analysis/ACA_Project/sonic-annotator-1.5-osx-amd64/sonic-annotator ';
    vamp = ' -d vamp:mtg-melodia:melodia:melody ';
    audioFile = audioFileNames(i).name;
    writer = ' -w csv';
@@ -62,7 +62,7 @@ for i = 1 : len
     [pks, locs] = findpeaks(newPitchInMidi, 'MinPeakProminence', 0.1);
     plot(locs, pks); 
     newPitchInMidi2 = 1.01*max(newPitchInMidi) - newPitchInMidi;
-    [pks2, locs2] = findpeaks(newPitchInMidi2, 'MinPeakProminence', 0.1);
+    [~, locs2] = findpeaks(newPitchInMidi2, 'MinPeakProminence', 0.1);
     pks2 = newPitchInMidi(locs2);
     plot(locs2, pks2); hold off;
     
